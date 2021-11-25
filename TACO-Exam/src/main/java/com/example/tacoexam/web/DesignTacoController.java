@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.Errors;
 
+import javax.validation.Valid;
+
 @Slf4j
 @Controller
 @RequestMapping("/design")
@@ -59,7 +61,10 @@ public class DesignTacoController {
 
 
     @PostMapping
-    public String processDesign(Taco design){
+    public String processDesign(@Valid Taco design, Errors errors){
+        if(errors.hasErrors()) return "design";
+
+
         log.info("Processing design: "+design);
         return "redirect:/orders/current";
     }

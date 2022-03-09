@@ -1,5 +1,6 @@
 package com.bbangi.tacorealexam;
 
+import com.bbangi.tacorealexam.web.HomeController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -12,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Created by bangjinhyuk on 2022/03/06.
  */
-@WebMvcTest(HomeController.class)
+@WebMvcTest()
 class HomeControllerTest {
 
     @Autowired

@@ -1,6 +1,6 @@
-package com.example.tacoexam.web;
+package com.bbangi.tacorealexam.web;
 
-import com.example.tacoexam.Order;
+import com.bbangi.tacorealexam.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 /**
- * Created by bangjinhyuk on 2021/11/24.
+ * Created by bangjinhyuk on 2022/03/09.
  */
 @Slf4j
 @Controller
@@ -20,17 +20,15 @@ import javax.validation.Valid;
 public class OrderController {
 
     @GetMapping("/current")
-    public String orderForm(Model model) {
+    public String orderForm(Model model){
         model.addAttribute("order", new Order());
         return "orderForm";
     }
 
     @PostMapping
-    public String processOrder(@Valid Order order, Errors errors) {
-        if (errors.hasErrors()) {
+    public String processOrder(@Valid Order order, Errors errors){
+        if(errors.hasErrors())
             return "orderForm";
-        }
-
         log.info("Order submitted: " + order);
         return "redirect:/";
     }

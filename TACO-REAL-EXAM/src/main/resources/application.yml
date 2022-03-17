@@ -9,3 +9,17 @@ spring:
   web:
     resources:
       static-locations: classpath:static/
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:mysql://localhost:3306/taco?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+    drib
